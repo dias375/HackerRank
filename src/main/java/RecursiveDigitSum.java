@@ -33,13 +33,8 @@ class RecursiveDigitSum {
     }
 
     private static long digitsSum(long number) {
-        long sum = 0;
         String numberString = String.valueOf(number);
-        char[] charArray = numberString.toCharArray();
-        for (char c : charArray) {
-            sum += Long.parseLong(String.valueOf(c));
-        }
-        return sum;
+        return digitsSum(numberString);
     }
 
     private static long digitsSum(String numberString) {
@@ -50,5 +45,4 @@ class RecursiveDigitSum {
         }
         return sum;
     }
-
 }
