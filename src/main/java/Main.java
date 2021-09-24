@@ -6,18 +6,30 @@ public class Main {
 
     public static void main(String[] args) {
 
-        List<Integer> a = new ArrayList<>();
-        a.add(1);
-        a.add(2);
-        a.add(3);
+        /*
+        List<String> a = new ArrayList<>();
+        a.add("4");
+        a.add("3");
+        a.add("abc");
+        a.add("aic");
+        a.add("abc");
+        a.add("2");
+        a.add("ab");
+        a.add("ab");
+        a.add("2");
+        a.add("xb");
+        a.add("ab");
+        a.add("4");
+        a.add("abcd");
+        a.add("abcd");
+        a.add("abcd");
+        a.add("abcd");
 
-        List<List<Integer>> b = new ArrayList<>();
 
-        b.add(a);
-        b.add(a);
-        b.add(a);
+        System.out.println(GridChallenge.gridChallenge(a));
+         */
 
-        System.out.println(DiagonalDifference.diagonalDifference(b));
+        System.out.println(RecursiveDigitSum.superDigit("3546630947312051453014172159647935984478824945973141333062252613718025688716704470547449723886626736", 100000));
 
 
     }
