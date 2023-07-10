@@ -1,3 +1,5 @@
+package com.hackerrank.oneweekinterview;
+
 import java.util.*;
 import java.lang.*;
 import java.io.*;

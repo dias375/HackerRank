@@ -1,3 +1,5 @@
+package com.hackerrank.oneweekinterview;
+
 import java.io.*;
 import java.lang.reflect.Array;
 import java.math.*;
