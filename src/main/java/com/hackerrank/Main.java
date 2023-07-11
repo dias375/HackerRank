@@ -3,19 +3,26 @@ package com.hackerrank;
 import com.hackerrank.interviewprepkit.*;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        int n = 9787;
-        int d = 2895;
-        List<Integer> a = new ArrayList<>();
-        for(int i = 1; i <= n; i++) a.add(i);
+//        int n = 9787;
+//        int d = 2895;
+//        List<Integer> a = new ArrayList<>();
+//        for(int i = 1; i <= n; i++) a.add(i);
 
-        var run = new RotLeft();
-        System.out.println(run.rotLeft(a, d));
+        var run = new NewYearChaos();
+
+        var list = new ArrayList<Integer>(Arrays.asList(1, 2, 5, 3, 7, 8, 6, 4));
+        //                                      index   1, 2, 3, 4, 5, 6, 7, 8
+        //                                      bribe   0, 0, 2,-1, 2, 2,-1,-4
+
+
+
+        run.minimumBribes(list);
 
 
     }
