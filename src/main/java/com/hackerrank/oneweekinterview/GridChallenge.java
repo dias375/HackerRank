@@ -25,73 +25,45 @@ class GridChallenge {
 
     public static String gridChallenge(List<String> grid) {
         // Write your code here
-        int numberOfCases = Integer.parseInt(grid.get(0));
-        StringBuilder answer = new StringBuilder();
 
+        String negative = "NO";
+        String positive = "YES";
 
-        for (int i = 1; i < grid.size(); i++) {
-            String inOrder = "YES";
-            int matrixSize = Integer.parseInt(grid.get(i));
-            List<String> matrix = getMatrix(grid, i + 1, i + matrixSize + 1);
-            if (!areColumnsInOrder(matrix)) {
-                inOrder = "NO";
+        grid = rotate(grid);
+
+        List<String> sortedRotate = sort(grid);
+
+        for(int i = 0 ; i < grid.size() ; i++) {
+            if (!Objects.equals(grid.get(i), sortedRotate.get(i))) return negative;
+        }
+        return positive;
+
+    }
+
+    private static List<String> rotate(List<String> grid){
+
+        List<String> temp = new ArrayList<>();
+        int size = grid.get(0).length()-1;
+
+        for (int index  = 0 ; index < size; index++) {
+            StringBuilder builder = new StringBuilder();
+            for (String s : grid) {
+                builder.append(s.charAt(index));
             }
-
-            i += matrixSize;
-            answer.append(inOrder);
-            answer.append("\n");
-        }
-        return answer.toString();
-    }
-
-    private static List<String> getMatrix(List<String> grid, int firstIndex, int lastIndex) {
-        List<String> matrix = new ArrayList<>();
-        for (int index = firstIndex; index < lastIndex; index++) {
-            matrix.add(grid.get(index));
-        }
-        return matrix;
-    }
-
-    private static List<String> sort(List<String> grid) {
-        List<String> sortedGrid = new ArrayList<>();
-
-        for (String row : grid) {
-            char[] charsInRow = row.toCharArray();
-            Arrays.sort(charsInRow);
-            sortedGrid.add(new String(charsInRow));
+            temp.add(builder.toString());
         }
 
-        return sortedGrid;
+        return temp;
     }
 
-    private static Boolean areColumnsInOrder(List<String> grid) {
-        List<String> transverseGrid = transverse(grid);
-        List<String> sortedGrid = sort(transverseGrid);
-
-        for (int index = 0; index < transverseGrid.size(); index++) {
-            String transverseString = transverseGrid.get(index);
-            String sortedString = sortedGrid.get(index);
-            if (!transverseGrid.equals(sortedGrid)) {
-                return false;
-            }
-
+    private static List<String> sort(List<String> grid){
+        int index = 0;
+        for(String s : grid){
+            char[] array = s.toCharArray();
+            Arrays.sort(array);
+            grid.set(index, String.valueOf(array));
+            index++;
         }
-
-        return true;
-    }
-
-    private static List<String> transverse(List<String> grid) {
-        List<String> transverseGrid = new ArrayList<>();
-
-        int i = 0;
-        do {
-            String buffer = "";
-            for (String row : grid) {
-                buffer = buffer.concat(String.valueOf(row.charAt(i)));
-            }
-            transverseGrid.add(buffer);
-            i++;
-        } while (i < grid.size());
-        return transverseGrid;
+        return grid;
     }
 }
